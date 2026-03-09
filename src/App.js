@@ -19,7 +19,7 @@ export default function App() {
           </a>{" "}
           and is{" "}
           <a
-            href="https://github.com/gisbcode/reactweek5/tree/main/src"
+            href="https://github.com/gisbcode/reactweek5-main/tree/main"
             target="_blank"
             rel="noreferrer"
           >
