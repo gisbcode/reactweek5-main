@@ -27,7 +27,7 @@ export default function App() {
           </a>{" "}
           and{" "}
           <a
-            href="https://app.netlify.com/projects/finalprojectw5/deploys"
+            href="https://reactweek5main.netlify.app/"
             target="_blank"
             rel="noreferrer"
           >
