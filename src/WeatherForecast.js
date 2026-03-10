@@ -3,7 +3,8 @@ import "./WeatherForecast.css";
 import axios from "axios";
 import WeatherDay from "./WeatherDay";
 
-export default function WeatherForecast(props) {
+export default function WeatherForecast({ submittedCity }) {
+  const [submittedCity, setSubmittedCity] = useState("");
   let [loaded, setLoaded] = useState(false);
   let [forecast, setForecast] = useState(null);
 
