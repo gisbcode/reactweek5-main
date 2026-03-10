@@ -7,11 +7,11 @@ import "./Weather.css";
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
-   const [submittedCity, setSubmittedCity] = useState(""); 
 
   function handleResponse(response) {
     setWeatherData({
       ready: true,
+      coordinates: response.data.coordinates,
       temperature: response.data.temperature.current,
       city: response.data.city,
       description: response.data.condition.description,
@@ -23,7 +23,7 @@ export default function Weather(props) {
 
   function search() {
     const apiKey = "39a3014fd34afe90bc14c4tc7oed280d";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${submittedCity}&key=${apiKey}`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
     axios.get(apiUrl).then(handleResponse);
   }
 
@@ -49,7 +49,7 @@ export default function Weather(props) {
         </form>
 
         <WeatherInfo data={weatherData} />
-        <WeatherForecast city={weatherData.city} />
+        <WeatherForecast coordinates={weatherData.coordinates} />
       </div>
     );
   } else {
