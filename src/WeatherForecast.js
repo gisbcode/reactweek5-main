@@ -3,7 +3,8 @@ import "./WeatherForecast.css";
 import axios from "axios";
 import WeatherDay from "./WeatherDay";
 
-export default function WeatherForecast(props) {
+export default function WeatherForecast({ submittedCity }) {
+  const [submittedCity] = useState("");
   let [loaded, setLoaded] = useState(false);
   let [forecast, setForecast] = useState(null);
 
@@ -27,19 +28,16 @@ export default function WeatherForecast(props) {
                   <WeatherDay data={dailyForecast} />
                 </div>
               );
-            }
-            return null;
+            } else return null;
           })}
         </div>
       </div>
     );
   } else {
-    let apiKey = "YOUR_API_KEY";
+    let apiKey = "39a3014fd34afe90bc14c4tc7oed280d";
     let longitude = props.coordinates.lon;
     let latitude = props.coordinates.lat;
-
-    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${longitude}&lat=${latitude}&key=${apiKey}`;
-
+    const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${submittedCity}&key=${apiKey}`;
     axios.get(apiUrl).then(handleResponse);
 
     return null;
