@@ -8,9 +8,12 @@ export default function WeatherForecast({ submittedCity }) {
   let [loaded, setLoaded] = useState(false);
   let [forecast, setForecast] = useState(null);
 
+
   useEffect(() => {
-    setLoaded(false);
-  }, [props.coordinates]);
+    setCity(props.defaultCity);
+    search();
+  }, []);
+
 
   function handleResponse(response) {
     setForecast(response.data.daily);
