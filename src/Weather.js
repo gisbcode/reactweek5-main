@@ -26,6 +26,7 @@ export default function Weather(props) {
    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${longitude}&lat=${latitude}&key=${apiKey}`;
 
     axios.get(apiUrl).then(handleResponse);
+    
   }
 
   function handleSubmit(event) {
